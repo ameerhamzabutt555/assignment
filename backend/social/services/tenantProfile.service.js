@@ -19,7 +19,7 @@ const kcreate = async (req) => {
 const find = async (id) => {
 	const tenant = await TenantProfile.findByPk(id, {include: UserProfile});
 	if(tenant === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		return tenant;
 	}
@@ -28,7 +28,7 @@ const find = async (id) => {
 const findAll = async () => {
 	const tenant = await TenantProfile.findAll({include: UserProfile});
 	if(tenant === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		return tenant;
 	}
@@ -37,7 +37,7 @@ const findAll = async () => {
 const update = async (id, req) => {
 	const findtenant = await TenantProfile.findByPk(id);
 	if(findtenant === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		const updateTenant = await TenantProfile.update(req.body, {where: {id: id}});
 		console.log(updateTenant);
@@ -48,7 +48,7 @@ const update = async (id, req) => {
 const del = async (id) => {
 	const findtenant = await TenantProfile.findByPk(id);
 	if(findtenant === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		await TenantProfile.destroy({where: {id: id}});
 		return true;    

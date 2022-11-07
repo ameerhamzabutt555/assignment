@@ -1,4 +1,6 @@
 const userService = require('../services/userProfile.service');
+
+// create User Profile
 const create = async (req, res) => {
 	try {
 		const createdUser = await userService.create(req);
@@ -18,6 +20,7 @@ const create = async (req, res) => {
 	}
 };
 
+// Find User Profile with ID
 const find = async (req, res) => {
 	try {
 		const user = await userService.find(req.params.id);
@@ -37,6 +40,7 @@ const find = async (req, res) => {
 	}
 };
 
+// get All User Profiles
 const findAll = async (req, res) => {
 	try {
 		const user = await userService.findAll();
@@ -55,6 +59,7 @@ const findAll = async (req, res) => {
 	}
 };
 
+// Update User Profile with Profile ID
 const update = async (req, res) => {
 	try {
 		const updateUser = await userService.update(req.params.id, req);
@@ -73,6 +78,7 @@ const update = async (req, res) => {
 	}
 };
 
+// delete User Profile with ID
 const del = async (req, res) => {
 	try {
 		const delUser = await userService.del(req.params.id);
@@ -91,7 +97,7 @@ const del = async (req, res) => {
 	}
 };
 
-
+// export all functions
 module.exports = {
 	create,
 	find,

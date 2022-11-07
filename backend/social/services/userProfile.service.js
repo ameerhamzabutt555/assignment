@@ -19,7 +19,7 @@ const kcreate = async (req) => {
 const find = async (id) => {
 	const userProfile = await UserProfile.findByPk(id);
 	if(userProfile === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		return userProfile;
 	}
@@ -28,7 +28,7 @@ const find = async (id) => {
 const findAll = async () => {
 	const userProfile = await UserProfile.findAll();
 	if(userProfile === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		return userProfile;
 	}
@@ -37,7 +37,7 @@ const findAll = async () => {
 const update = async (id, req) => {
 	const finduser = await UserProfile.findByPk(id);
 	if(finduser === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		const updateUser = await UserProfile.update(req.body, {where: {id: id}});
 		console.log(updateUser);
@@ -48,7 +48,7 @@ const update = async (id, req) => {
 const del = async (id) => {
 	const findUser = await UserProfile.findByPk(id);
 	if(findUser === null) {
-		return {status:404,message:"No record found",error:true};
+		return {status:404,message:'No record found',error:true};
 	} else {
 		await UserProfile.destroy({where: {id: id}});
 		return true;    

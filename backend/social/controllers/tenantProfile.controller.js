@@ -1,4 +1,5 @@
 const tenantService = require('../services/tenantProfile.service');
+// create Tenant Profile
 const create = async (req, res) => {
 	try {
 		const createdTenant = await tenantService.create(req);
@@ -17,7 +18,7 @@ const create = async (req, res) => {
 		});
 	}
 };
-
+// Find Tenant Profile with ID
 const find = async (req, res) => {
 	try {
 		const tenant = await tenantService.find(req.params.id);
@@ -35,7 +36,7 @@ const find = async (req, res) => {
 		});
 	}
 };
-
+// get All Tenant Profiles
 const findAll = async (req, res) => {
 	try {
 		const tenant = await tenantService.findAll();
@@ -53,7 +54,7 @@ const findAll = async (req, res) => {
 		});
 	}
 };
-
+// Update Tenant Profile with Profile ID
 const update = async (req, res) => {
 	try {
 		const updateTenat = await tenantService.update(req.params.id, req);
@@ -71,7 +72,7 @@ const update = async (req, res) => {
 		});
 	}
 };
-
+// delete Tenant Profile with ID
 const del = async (req, res) => {
 	try {
 		const delTenat = await tenantService.del(req.params.id);
@@ -90,7 +91,7 @@ const del = async (req, res) => {
 	}
 };
 
-
+// export all functions
 module.exports = {
 	create,
 	find,
