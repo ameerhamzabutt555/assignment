@@ -1,3 +1,4 @@
+require('./config/database');
 const express = require('express');
 // const { initConsumer } = require('./utilities/consumer');
 const { initProducer } = require('./utilities/producer');
@@ -5,6 +6,7 @@ const { initProducer } = require('./utilities/producer');
 // const { connectProducer, connectAdmin } = require('./utilities/producer');
 // const KeyMaster = require('./utilities/KeyMaster');
 // const databaseConfig = require('./database/DatabaseConfig');
+const indexRouter = require('./routes/index');
 
 const app = express();
 
@@ -12,7 +14,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // app.use(databaseConfig.initializeDB());
-
+app.use('/', indexRouter);
 app.use('/', async (req, res) => {
 
 	res.status(200).json({ message: `App is running on port. ${process.env.PORT || 4000}` });
